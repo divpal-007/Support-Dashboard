@@ -2,7 +2,7 @@
 A responsive AI-powered support ticket management dashboard built with React.js.
 
 ## 🌐 Live Demo
-[View Live on Vercel](#) ← Add your Vercel link here after deploying
+https://support-dashboard-theta.vercel.app
 
 ## 📸 Screenshot
 ![Dashboard](image.png)

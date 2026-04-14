@@ -1,12 +1,11 @@
-# 🤖 SupportAI Dashboard
-
+# 🤖 TellMe SupportAI Dashboard
 A responsive AI-powered support ticket management dashboard built with React.js.
 
 ## 🌐 Live Demo
 [View Live on Vercel](#) ← Add your Vercel link here after deploying
 
 ## 📸 Screenshot
-<!-- Add screenshot after running the project -->
+![Dashboard](image.png)
 
 ## ✨ Features
 - 📊 Real-time ticket statistics (Total, Open, Pending, Resolved)
@@ -21,24 +20,6 @@ A responsive AI-powered support ticket management dashboard built with React.js.
 - **JavaScript (ES6+)** — useState, array methods, destructuring
 - **CSS3** — Flexbox, CSS Grid, CSS Variables, Responsive Design
 - **Vercel** — Deployment
-
-## 🚀 How to Run Locally
-
-```bash
-# Clone the repository
-git clone https://github.com/yourusername/support-dashboard.git
-
-# Navigate to project
-cd support-dashboard
-
-# Install dependencies
-npm install
-
-# Start development server
-npm start
-
-# Open browser at http://localhost:3000
-```
 
 ## 📁 Project Structure
 

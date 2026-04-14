@@ -1,0 +1,60 @@
+/* StatsCards.css */
+
+.stats-container {
+  display: grid;
+  /* auto-fit = create as many columns as fit */
+  /* minmax(200px, 1fr) = each column min 200px, max equal share */
+  /* This makes it automatically responsive! */
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.stat-card {
+  background: var(--bg-white);
+  border-radius: var(--radius);
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  box-shadow: var(--shadow);
+  border: 1px solid var(--border);
+  /* border-top is set inline in component (dynamic color) */
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.stat-card:hover {
+  transform: translateY(-2px);       /* Lifts up slightly */
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.stat-icon {
+  font-size: 32px;
+}
+
+.stat-count {
+  font-size: 28px;
+  font-weight: 700;
+  line-height: 1;
+  /* color set inline in component (dynamic) */
+}
+
+.stat-title {
+  font-size: 13px;
+  color: var(--text-muted);
+  font-weight: 500;
+  margin-top: 4px;
+}
+
+.stat-subtitle {
+  font-size: 11px;
+  color: #94a3b8;
+  margin-top: 2px;
+}
+
+/* Responsive — stack on very small screens */
+@media (max-width: 480px) {
+  .stats-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}

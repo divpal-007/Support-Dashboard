@@ -76,4 +76,3 @@ src/
 ## 👨‍💻 Author
 **Divyanshu Pal** — Full Stack Engineer | 2x AWS Certified
 - LinkedIn: [linkedin.com/in/divyanshu_pal](https://linkedin.com/in/divyanshu_pal)
-- Email: divyanshupal108@gmail.com

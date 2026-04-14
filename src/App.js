@@ -66,7 +66,7 @@ function App() {
     iconTitle.rel = 'icon';
     iconTitle.href = 'https://cdn.jsdelivr.net/npm/twemoji@14.0.2/assets/72x72/1f916.png';
     document.head.appendChild(iconTitle);
-    // Dynamic Title for Total Tickets Count
+    // Dynamic Title for Total Tickets Count with App Name
     document.title = `${filteredTickets.length} Tickets | TellMe`;
   }, [filteredTickets]);
   

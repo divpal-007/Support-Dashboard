@@ -5,7 +5,7 @@
 // ============================================
 
 // Step 1: Always import React when building components
-import React, { useState } from 'react';
+import React, { useState,useEffect } from 'react';
 // useState is a HOOK — it lets us store data that can change
 // Think of it like a variable that React watches for changes
 // When it changes → React automatically re-renders the UI
@@ -59,6 +59,17 @@ function App() {
     return matchesSearch && matchesFilter;
   });
 
+  useEffect(() => {
+    // querySelector searches for link attribute 
+    // if not found the createElement creates it
+    const iconTitle = document.querySelector("link[rel='icon']") || document.createElement('link');
+    iconTitle.rel = 'icon';
+    iconTitle.href = 'https://cdn.jsdelivr.net/npm/twemoji@14.0.2/assets/72x72/1f916.png';
+    document.head.appendChild(iconTitle);
+    // Dynamic Title for Total Tickets Count
+    document.title = `${filteredTickets.length} Tickets | TellMe`;
+  }, [filteredTickets]);
+  
   // ── JSX (what gets shown on screen) ───────────
   // JSX looks like HTML but it's actually JavaScript
   // Rules:
@@ -93,7 +104,7 @@ function App() {
       </main>
     </div>
   );
-}
+} 
 
 // Always export your component so other files can use it
 export default App;

@@ -8,14 +8,18 @@
 // ============================================
 
 import React, { useState } from 'react';
+import {DeleteConfirmModal} from './TicketCreationUpdation';
 import './TicketCard.css';
 
-function TicketCard({ ticket }) {
+function TicketCard({ ticket,onDelete,onUpdate }) {
 
   // Local state — only this card knows if it's expanded
   // Each card has its own independent expanded state
   const [isExpanded, setIsExpanded] = useState(false);
-
+    // Delete Variable
+  const [ticketToDelete, setTicketToDelete] = useState(null);
+  const [tickets, setTickets] = useState([]);
+  const [loading, setLoading] = useState(true);
   // ── HELPER FUNCTIONS ─────────────────────────
 
   // Returns CSS class based on status
@@ -56,7 +60,6 @@ function TicketCard({ ticket }) {
     const index = initials.charCodeAt(0) % colors.length;
     return colors[index];
   };
-
   return (
     <>
       {/* Main ticket row */}
@@ -126,12 +129,26 @@ function TicketCard({ ticket }) {
             <span className="detail-label">🏷️ Category:</span>
             <span className="detail-value">{ticket.category}</span>
           </div>
+          <div className="detail-row">
+            <span className="detail-label">🙍 Tone:</span>
+            <span className="detail-value">{ticket.sentiment}</span>
+          </div>
           <div className="ticket-actions">
-            <button className="action-btn btn-resolve">✅ Mark Resolved</button>
-            <button className="action-btn btn-pending">🟡 Mark Pending</button>
-            <button className="action-btn btn-close">✕ Close</button>
+            <button className="action-btn btn-resolve" onClick={()=>onUpdate(ticket.id,ticket,"Resolved")}>✅ Mark Resolved</button>
+            <button className="action-btn btn-pending" onClick={()=>onUpdate(ticket.id,ticket,"Pending")}>🟡 Mark Pending</button>
+            <button className="action-btn btn-close" onClick={()=>setTicketToDelete(ticket)}>✕ Delete</button>
           </div>
         </div>
+      )}
+      {/* Deletion of Ticket Modal */}
+       {ticketToDelete && (
+        <DeleteConfirmModal
+          ticket={ticketToDelete}
+          onConfirm={(id) => {
+            onDelete(id);
+          }}
+          onCancel={() => setTicketToDelete(null)}
+        />
       )}
     </>
     // <> </> is called a Fragment

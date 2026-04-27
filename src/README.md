@@ -24,6 +24,7 @@ https://support-dashboard-theta.vercel.app
 ## 📁 Project Structure
 
 ```
+Old Prject Structure v1.0.0
 src/
 ├── components/
 │   ├── Navbar.js        # Top navigation bar
@@ -45,14 +46,40 @@ src/
 - Controlled inputs — search input controlled by React state
 - Component composition — reusable StatCard inside StatsCards
 
-## 🔮 Planned Improvements
-- [ ] Connect to real REST API backend
+## 🔮 Planned Improvements or Releases
+
+v1-0.0 - Release - Major
+- The ticket system Frontend
+- Static Webpage with Mock Data which is uneditable
+- Responsive Webpage with Media query
+- Static button placement with no working
+- Full app webpage design and implementation
+
+v2.0.0 - Release - Major
+- Added Backend Using Spring 
+- Dynamic List of the tickets where user has the full control now
+- Now User can create the Ticket using the Create Button
+- User can now update the Status of the ticket
+- User can now Delete the ticket
+- Added Loader on the Webapp
+- Added Support for AI bot to analyze the ticket Priority,Tone of the User and Category for the tickets. ---> Major Feature for this Release
+- Added Modal for Creation of the ticket which analyzes the ticket using AI
+- Used gemini-2.5-flash to generate the response
+- Major Improvements on the Stability and working of the app
+- Deployed Backend on EC2 --> Major learning from this release
+
+v-2.0.1 - Hotfix
+-  Minor Improvments to prevent crashing of the app
+
+Upcoming Features to be implemented
+
 - [ ] Add JWT authentication
 - [ ] Dark mode toggle
-- [ ] Ticket creation modal
 - [ ] Charts showing ticket trends (Chart.js)
-- [ ] Docker containerization
-- [ ] Deploy backend on AWS EC2
+- [ ] Pagination for ticket List
+- [ ] User can update their Profile
+- [ ] Dynamic Navbar
+- [ ] Role Based Login Support
 
 ## 👨‍💻 Author
 **Divyanshu Pal** — Full Stack Engineer | 2x AWS Certified

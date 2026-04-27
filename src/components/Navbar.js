@@ -9,10 +9,18 @@
 
 import React from 'react';
 import './Navbar.css';
-
+import { useState,useEffect } from 'react';
+import {CreateTicketModal} from './TicketCreationUpdation';
+import { createTicket,getTickets } from '../api/ticketApi';
 // This component takes no props — it's static
-function Navbar() {
+function Navbar({onCreate}) {
+  // For Modal opening and creation of new Tickets
+    const [showCreate, setShowCreate] = useState(false);
+    const [tickets, setTickets] = useState([]);
+    const [loading, setLoading] = useState(true);
+ 
   return (
+    <>
     <nav className="navbar">
 
       {/* Left side — Logo and app name */}
@@ -27,6 +35,12 @@ function Navbar() {
 
       {/* Right side — User info */}
       <div className="navbar-right">
+         {/* // Create btn for Tickets.. */}
+      <div className="create-button">
+      <button className="create-ticket-btn" onClick={() => setShowCreate(true)}>
+        + New Ticket
+      </button>
+      </div>
         {/* Notification bell */}
         <button className="navbar-btn" title="Notifications">
           🔔
@@ -41,6 +55,17 @@ function Navbar() {
       </div>
 
     </nav>
+      {/* ── Modals ── */}
+      {/* 🎓 LEARNING: Conditional rendering with && - only render
+          when showCreate is true */}
+      {showCreate && (
+        <CreateTicketModal
+          onClose={() => setShowCreate(false)}
+          onCreate={onCreate}
+          loading={loading}
+        />
+      )}
+    </>
   );
 }
 

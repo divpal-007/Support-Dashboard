@@ -12,7 +12,7 @@ import React from 'react';
 import TicketCard from './TicketCard';
 import './TicketList.css';
 
-function TicketList({ tickets }) {
+function TicketList({ tickets,onDelete,onUpdate }) {
 
   // ── CONDITIONAL RENDERING ────────────────────
   // If no tickets match the filter/search
@@ -44,7 +44,7 @@ function TicketList({ tickets }) {
       {/* tickets.map() = like forEach in Java but returns new array */}
       {tickets.map(ticket => (
         // key={ticket.id} is required — helps React track changes efficiently
-        <TicketCard key={ticket.id} ticket={ticket} />
+        <TicketCard key={ticket.id} ticket={ticket} onDelete={onDelete} onUpdate={onUpdate} />
       ))}
 
       {/* Footer showing count */}

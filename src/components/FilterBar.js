@@ -84,9 +84,7 @@ function FilterBar({ searchTerm, setSearchTerm, activeFilter, setActiveFilter })
             {filter}
           </button>
         ))}
-
       </div>
-
     </div>
   );
 }

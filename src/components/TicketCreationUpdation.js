@@ -28,13 +28,14 @@ function CreateTicketModal({ onClose, onCreate }) {
 
     try {
       // 🎓 LEARNING: Build the new ticket object to pass up to parent
+      const avatar = form.customerName.trim().split(" ")
       const newTicket = {
         title:form.title,
         description:form.description,
         userName:form.customerName,
         createdAt: new Date().toISOString(),
         status:"Open",
-        avatar:form.customerName.split(" ")[0].charAt(0)+form.customerName.split(" ")[1].charAt(0) !== undefined ? form.customerName.split(" ")[1].charAt(0):"" 
+        avatar:avatar[0]?.charAt(0) + (avatar[1]?.charAt(0) || "")
       };
 
       await onCreate(newTicket);

@@ -64,7 +64,8 @@ function App() {
         setLoading(true);
       try {
         const res = await getTickets();
-        setTickets(res.data);
+        const data = await res.json();
+        setTickets(data);
       } catch (err) {
         console.error(err);
       }finally{

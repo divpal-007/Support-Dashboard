@@ -71,10 +71,12 @@ v2.0.0 - Release - Major
 v-2.0.1 - Hotfix
 -  Minor Improvments to prevent crashing of the app
 -  Minor unused imports removed for Vercel
+-  Fixed CORS issue that blocked get Requests on Vercel using ngrock
 
 Upcoming Features to be implemented
 
 - [ ] Add JWT authentication
+- [ ] Add feature for viewing the ticket description
 - [ ] Dark mode toggle
 - [ ] Charts showing ticket trends (Chart.js)
 - [ ] Pagination for ticket List

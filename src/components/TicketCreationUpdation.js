@@ -34,7 +34,7 @@ function CreateTicketModal({ onClose, onCreate }) {
         userName:form.customerName,
         createdAt: new Date().toISOString(),
         status:"Open",
-        avatar:form.customerName.split(" ")[0].charAt(0)+form.customerName.split(" ")[1].charAt(0)
+        avatar:form.customerName.split(" ")[0].charAt(0)+form.customerName.split(" ")[1].charAt(0) != undefined ? form.customerName.split(" ")[1].charAt(0):"" 
       };
 
       await onCreate(newTicket);

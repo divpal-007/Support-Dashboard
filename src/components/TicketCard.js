@@ -18,8 +18,6 @@ function TicketCard({ ticket,onDelete,onUpdate }) {
   const [isExpanded, setIsExpanded] = useState(false);
     // Delete Variable
   const [ticketToDelete, setTicketToDelete] = useState(null);
-  const [tickets, setTickets] = useState([]);
-  const [loading, setLoading] = useState(true);
   // ── HELPER FUNCTIONS ─────────────────────────
 
   // Returns CSS class based on status

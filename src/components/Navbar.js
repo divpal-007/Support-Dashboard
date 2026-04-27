@@ -15,6 +15,7 @@ import {CreateTicketModal} from './TicketCreationUpdation';
 function Navbar({onCreate}) {
   // For Modal opening and creation of new Tickets
     const [showCreate, setShowCreate] = useState(false);
+    const [loading, setLoading] = useState(false);
  
   return (
     <>

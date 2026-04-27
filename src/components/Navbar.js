@@ -9,15 +9,12 @@
 
 import React from 'react';
 import './Navbar.css';
-import { useState,useEffect } from 'react';
+import { useState} from 'react';
 import {CreateTicketModal} from './TicketCreationUpdation';
-import { createTicket,getTickets } from '../api/ticketApi';
 // This component takes no props — it's static
 function Navbar({onCreate}) {
   // For Modal opening and creation of new Tickets
     const [showCreate, setShowCreate] = useState(false);
-    const [tickets, setTickets] = useState([]);
-    const [loading, setLoading] = useState(true);
  
   return (
     <>

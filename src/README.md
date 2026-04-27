@@ -70,6 +70,7 @@ v2.0.0 - Release - Major
 
 v-2.0.1 - Hotfix
 -  Minor Improvments to prevent crashing of the app
+-  Minor unused imports removed for Vercel
 
 Upcoming Features to be implemented
 

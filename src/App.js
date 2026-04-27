@@ -124,7 +124,7 @@ function App() {
       )}
     <div className="app">
       {/* Navbar — just shows the top bar */}
-      <Navbar onCreate={handleCreate} />
+      <Navbar onCreate={handleCreate} loading={loading}/>
 
       {/* Main content area */}
       <main className="main-content">

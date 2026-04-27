@@ -12,10 +12,9 @@ import './Navbar.css';
 import { useState} from 'react';
 import {CreateTicketModal} from './TicketCreationUpdation';
 // This component takes no props — it's static
-function Navbar({onCreate}) {
+function Navbar({onCreate,loading}) {
   // For Modal opening and creation of new Tickets
     const [showCreate, setShowCreate] = useState(false);
-    const [loading, setLoading] = useState(false);
  
   return (
     <>

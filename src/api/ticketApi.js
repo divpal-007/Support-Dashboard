@@ -1,7 +1,7 @@
 import axios from "axios";
 // Connecting backend CRUD operations with React using Spring
 // Centralized API calls
-const API = "/api";
+const API = "https://retiring-huntress-brownnose.ngrok-free.dev/api/tickets";
 
 export const createTicket = (data) => axios.post(API, data);
 

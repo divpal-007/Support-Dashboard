@@ -324,7 +324,7 @@
     animation: growBar 1.5s 1s cubic-bezier(0.22,1,0.36,1) forwards;
   }
 
-  @keyframes growBar { to { width: 72%; } }
+  /* @keyframes growBar { to { width: 72%; } } */
 
   @keyframes fadeUp {
     from { opacity: 0; transform: translateY(24px); }
@@ -384,7 +384,7 @@
   <div class="progress-wrap">
     <div class="progress-info">
       <span>Build Progress</span>
-      <span>72%</span>
+      <span id="build-progress">72%</span>
     </div>
     <div class="progress-bar">
       <div class="progress-fill"></div>
@@ -431,6 +431,8 @@
 <script>
   // Countdown to a target date (7 days from now)
   const target = new Date('2026-05-21T00:00:00');
+  const style = document.createElement('style');
+ 
 
   function tick() {
     const diff = target - Date.now();
@@ -443,6 +445,11 @@
     document.getElementById('hours').textContent = String(h).padStart(2,'0');
     document.getElementById('mins').textContent  = String(m).padStart(2,'0');
     document.getElementById('secs').textContent  = String(s).padStart(2,'0');
+    document.getElementById('build-progress').textContent = Math.floor((8-d)/d*100)+"%";
+    style.textContent = `@keyframes growBar {
+    from { width: 0%; }
+    to   { width: ${Math.floor((8-d)/d*100)}%; }}`;
+    document.head.appendChild(style);
   }
   tick();
   setInterval(tick, 1000);

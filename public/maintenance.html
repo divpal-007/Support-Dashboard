@@ -324,7 +324,7 @@
     animation: growBar 1.5s 1s cubic-bezier(0.22,1,0.36,1) forwards;
   }
 
-  @keyframes growBar { to { width: 72%; } }
+  @keyframes growBar { to { width: 50%; } }
 
   @keyframes fadeUp {
     from { opacity: 0; transform: translateY(24px); }
@@ -430,7 +430,7 @@
 
 <script>
   // Countdown to a target date (7 days from now)
-  const target = new Date(Date.now() + 7 * 24 * 60 * 60 * 1000);
+  const target = new Date('2026-05-21T00:00:00');
 
   function tick() {
     const diff = target - Date.now();

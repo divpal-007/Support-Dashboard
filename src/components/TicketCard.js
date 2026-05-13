@@ -116,6 +116,10 @@ function TicketCard({ ticket,onDelete,onUpdate }) {
       {isExpanded && (
         <div className="ticket-details">
           <div className="detail-row">
+            <span className="detail-label">📝 Description:</span>
+            <span className="detail-value" style={{cursor:"pointer"}}> Description</span>
+          </div>
+          <div className="detail-row">
             <span className="detail-label">📧 Email:</span>
             <span className="detail-value">{ticket.email}</span>
           </div>

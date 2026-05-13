@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Under Maintenance</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg: #0A0A0F;
+    --surface: #12121A;
+    --border: rgba(255,255,255,0.07);
+    --accent: #C8FF00;
+    --accent2: #FF6B35;
+    --text: #F0EFE8;
+    --muted: #7A7A8A;
+    --card-bg: rgba(255,255,255,0.03);
+  }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'DM Sans', sans-serif;
+    min-height: 100vh;
+    overflow-x: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+  }
+
+  /* Grid background */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(200,255,0,0.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(200,255,0,0.04) 1px, transparent 1px);
+    background-size: 60px 60px;
+    pointer-events: none;
+  }
+
+  /* Radial glow */
+  body::after {
+    content: '';
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 800px;
+    height: 800px;
+    background: radial-gradient(circle, rgba(200,255,0,0.06) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .container {
+    position: relative;
+    z-index: 1;
+    width: min(900px, 94vw);
+    padding: 3rem 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 0;
+  }
+
+  /* Status badge */
+  .badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(200,255,0,0.08);
+    border: 1px solid rgba(200,255,0,0.25);
+    border-radius: 100px;
+    padding: 6px 16px;
+    font-size: 12px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 2.5rem;
+    animation: fadeDown 0.6s ease both;
+  }
+
+  .dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: var(--accent);
+    animation: pulse 1.8s ease-in-out infinite;
+  }
+
+  @keyframes pulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.4; transform: scale(0.7); }
+  }
+
+  /* Main heading */
+  h1 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(5rem, 16vw, 11rem);
+    line-height: 0.9;
+    letter-spacing: -0.01em;
+    color: var(--text);
+    margin-bottom: 0.15em;
+    animation: fadeUp 0.7s 0.1s ease both;
+    position: relative;
+  }
+
+  h1 span {
+    color: var(--accent);
+    display: block;
+  }
+
+  .sub-heading {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(1.8rem, 5vw, 3.5rem);
+    letter-spacing: 0.05em;
+    color: var(--muted);
+    margin-bottom: 2.5rem;
+    animation: fadeUp 0.7s 0.2s ease both;
+  }
+
+  .description {
+    font-size: 1.05rem;
+    color: var(--muted);
+    line-height: 1.75;
+    max-width: 520px;
+    margin-bottom: 3.5rem;
+    font-weight: 300;
+    animation: fadeUp 0.7s 0.3s ease both;
+  }
+
+  /* Countdown */
+  .countdown-wrap {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 3.5rem;
+    animation: fadeUp 0.7s 0.4s ease both;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .count-block {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1.2rem 1.8rem;
+    min-width: 100px;
+  }
+
+  .count-num {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 3.2rem;
+    line-height: 1;
+    color: var(--accent);
+    letter-spacing: 0.02em;
+  }
+
+  .count-label {
+    font-size: 10px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-top: 6px;
+  }
+
+  /* Features grid */
+  .features-label {
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 1.5rem;
+    animation: fadeUp 0.7s 0.5s ease both;
+  }
+
+  .features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1px;
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    overflow: hidden;
+    width: 100%;
+    margin-bottom: 3.5rem;
+    animation: fadeUp 0.7s 0.55s ease both;
+  }
+
+  .feature-item {
+    background: var(--surface);
+    padding: 1.6rem 1.4rem;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    transition: background 0.2s;
+  }
+
+  .feature-item:hover {
+    background: rgba(200,255,0,0.04);
+  }
+
+  .feat-icon {
+    width: 36px;
+    height: 36px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(200,255,0,0.1);
+    font-size: 18px;
+  }
+
+  .feat-title {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--text);
+  }
+
+  .feat-desc {
+    font-size: 12px;
+    color: var(--muted);
+    line-height: 1.5;
+    font-weight: 300;
+  }
+
+  /* Notify form */
+  .notify-wrap {
+    display: flex;
+    gap: 10px;
+    width: 100%;
+    max-width: 480px;
+    margin-bottom: 2.5rem;
+    animation: fadeUp 0.7s 0.65s ease both;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .notify-input {
+    flex: 1;
+    min-width: 220px;
+    background: rgba(255,255,255,0.05);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 12px 16px;
+    font-size: 14px;
+    color: var(--text);
+    font-family: 'DM Sans', sans-serif;
+    outline: none;
+    transition: border-color 0.2s;
+  }
+
+  .notify-input::placeholder { color: var(--muted); }
+  .notify-input:focus { border-color: rgba(200,255,0,0.4); }
+
+  .notify-btn {
+    background: var(--accent);
+    color: #0A0A0F;
+    border: none;
+    border-radius: 8px;
+    padding: 12px 22px;
+    font-size: 14px;
+    font-weight: 500;
+    font-family: 'DM Sans', sans-serif;
+    cursor: pointer;
+    transition: transform 0.15s, opacity 0.15s;
+    white-space: nowrap;
+  }
+
+  .notify-btn:hover { opacity: 0.85; }
+  .notify-btn:active { transform: scale(0.97); }
+
+  /* Footer line */
+  .footer-line {
+    font-size: 12px;
+    color: var(--muted);
+    animation: fadeUp 0.7s 0.75s ease both;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .sep { opacity: 0.3; }
+
+  /* Progress bar */
+  .progress-wrap {
+    width: 100%;
+    max-width: 480px;
+    margin-bottom: 3rem;
+    animation: fadeUp 0.7s 0.45s ease both;
+  }
+
+  .progress-info {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 8px;
+    font-size: 12px;
+    color: var(--muted);
+    letter-spacing: 0.05em;
+  }
+
+  .progress-bar {
+    height: 4px;
+    background: rgba(255,255,255,0.06);
+    border-radius: 99px;
+    overflow: hidden;
+  }
+
+  .progress-fill {
+    height: 100%;
+    border-radius: 99px;
+    background: var(--accent);
+    width: 0%;
+    animation: growBar 1.5s 1s cubic-bezier(0.22,1,0.36,1) forwards;
+  }
+
+  @keyframes growBar { to { width: 72%; } }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes fadeDown {
+    from { opacity: 0; transform: translateY(-12px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* Success toast */
+  .toast {
+    position: fixed;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%) translateY(80px);
+    background: var(--accent);
+    color: #0A0A0F;
+    padding: 12px 24px;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 500;
+    transition: transform 0.4s cubic-bezier(0.22,1,0.36,1);
+    z-index: 100;
+    white-space: nowrap;
+  }
+
+  .toast.show { transform: translateX(-50%) translateY(0); }
+</style>
+</head>
+<body>
+
+<div class="container">
+
+  <div class="badge">
+    <span class="dot"></span>
+    Scheduled Maintenance
+  </div>
+
+  <h1>WE'RE<span>REBUILDING</span></h1>
+  <div class="sub-heading">Something Better Is Coming</div>
+
+  <p class="description">
+    We are working hard to bring you an upgraded experience. We're overhauling the platform from the ground up — expect faster speeds, smarter tools, and a completely redesigned interface.
+  </p>
+
+  <!-- Countdown -->
+  <div class="countdown-wrap" id="countdown">
+    <div class="count-block"><span class="count-num" id="days">00</span><span class="count-label">Days</span></div>
+    <div class="count-block"><span class="count-num" id="hours">00</span><span class="count-label">Hours</span></div>
+    <div class="count-block"><span class="count-num" id="mins">00</span><span class="count-label">Minutes</span></div>
+    <div class="count-block"><span class="count-num" id="secs">00</span><span class="count-label">Seconds</span></div>
+  </div>
+
+  <!-- Progress -->
+  <div class="progress-wrap">
+    <div class="progress-info">
+      <span>Build Progress</span>
+      <span>72%</span>
+    </div>
+    <div class="progress-bar">
+      <div class="progress-fill"></div>
+    </div>
+  </div>
+
+  <!-- Upcoming features -->
+  <p class="features-label">What's coming</p>
+  <div class="features-grid">
+    <div class="feature-item">
+      <div class="feat-icon">⚡</div>
+      <div class="feat-title">New Hero Section</div>
+      <div class="feat-desc">Complete infrastructure rewrite for new HomePage.</div>
+    </div>
+    <div class="feature-item">
+      <div class="feat-icon">✦</div>
+      <div class="feat-title">AI-Powered Interactive Dashboard</div>
+      <div class="feat-desc">Smart insights and automated workflows with new features built right in.</div>
+    </div>
+    <div class="feature-item">
+      <div class="feat-icon">◈</div>
+      <div class="feat-title">New Design System</div>
+      <div class="feat-desc">A cleaner, more intuitive interface across all devices.</div>
+    </div>
+    <div class="feature-item">
+      <div class="feat-icon">⬡</div>
+      <div class="feat-title">Advanced Integrations</div>
+      <div class="feat-desc">Connect with updated tools directly to unlock new potential in our system.</div>
+    </div>
+  </div>
+
+  <div class="footer-line">
+    <span>© 2026 TellMe</span>
+    <span class="sep">|</span>
+    <span>Questions? <a href="mailto:hello@TellMe.com" style="color:var(--accent);text-decoration:none;">hello@TellMe.com</a></span>
+    <span class="sep">|</span>
+    <a href="#" style="color:var(--muted);text-decoration:none;">Status Page</a>
+  </div>
+
+</div>
+
+<div class="toast" id="toast">✓ We'll let you know as soon as we're live!</div>
+
+<script>
+  // Countdown to a target date (7 days from now)
+  const target = new Date(Date.now() + 7 * 24 * 60 * 60 * 1000);
+
+  function tick() {
+    const diff = target - Date.now();
+    if (diff <= 0) return;
+    const d = Math.floor(diff / 86400000);
+    const h = Math.floor((diff % 86400000) / 3600000);
+    const m = Math.floor((diff % 3600000) / 60000);
+    const s = Math.floor((diff % 60000) / 1000);
+    document.getElementById('days').textContent  = String(d).padStart(2,'0');
+    document.getElementById('hours').textContent = String(h).padStart(2,'0');
+    document.getElementById('mins').textContent  = String(m).padStart(2,'0');
+    document.getElementById('secs').textContent  = String(s).padStart(2,'0');
+  }
+  tick();
+  setInterval(tick, 1000);
+
+  function handleNotify() {
+    const v = document.getElementById('email').value.trim();
+    if (!v || !v.includes('@')) {
+      document.getElementById('email').style.borderColor = 'rgba(255,107,53,0.6)';
+      setTimeout(() => document.getElementById('email').style.borderColor = '', 1500);
+      return;
+    }
+    document.getElementById('email').value = '';
+    const t = document.getElementById('toast');
+    t.classList.add('show');
+    setTimeout(() => t.classList.remove('show'), 3500);
+  }
+
+  document.getElementById('email').addEventListener('keydown', e => {
+    if (e.key === 'Enter') handleNotify();
+  });
+</script>
+</body>
+</html>

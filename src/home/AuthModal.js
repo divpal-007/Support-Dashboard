@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { motion, AnimatePresence, easeOut } from "framer-motion";
+import { motion, AnimatePresence} from "framer-motion";
 
 // ─── Design tokens () ────────────────────────────────
 const INDIGO   = "#6366f1";

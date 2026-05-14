@@ -475,7 +475,7 @@ function AuthModal({ open, onClose, defaultTab = "signin" }) {
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0  }}
             exit={  { opacity: 0, y: 8  }}
-            transition={{ duration: 0.18, ease: "easeOut" }}
+            transition={{ duration: 0.18, }}
             style={{
               position: "fixed", inset: 0, zIndex: 101,
               display: "flex", alignItems: "center", justifyContent: "center",

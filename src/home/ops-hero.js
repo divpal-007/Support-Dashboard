@@ -186,16 +186,6 @@ const footerLinks = [
   "Blog",
 ];
 
-const sectionContainer = {
-  maxWidth: "1200px",
-  margin: "0 auto",
-  paddingLeft: "40px",
-  paddingRight: "40px",
-  width: "100%",
-};
-
-
-
 function MiniSparkline({ data, color, width = 100, height = 32 }) {
   const max = Math.max(...data), min = Math.min(...data);
   const pts = data.map((v, i) => {

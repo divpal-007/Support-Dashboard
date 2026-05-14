@@ -365,7 +365,7 @@ function CreateForm({ onSwitch }) {
     <div>
       <div style={{ marginBottom: "20px" }}>
         <div style={{ fontSize: "24px", fontWeight: "700", color: TEXT_HI, letterSpacing: "-0.025em", marginBottom: "5px" }}>Create your workspace</div>
-        <div style={{ fontSize: "13.5px", color: TEXT_LOW }}>Get started with a 14-day free trial</div>
+        <div style={{ fontSize: "13.5px", color: TEXT_LOW }}>Get started with the Service</div>
       </div>
 
       <div style={{ display: "flex", gap: "8px", marginBottom: "8px" }}>
@@ -422,7 +422,7 @@ function CreateForm({ onSwitch }) {
       </label>
 
       <PrimaryBtn onClick={submit} loading={loading}>
-        Launch my workspace 🚀
+        Launch my workspace
       </PrimaryBtn>
 
       <div style={{ textAlign: "center", marginTop: "14px", fontSize: "13px", color: TEXT_LOW }}>

@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence, easeOut } from "framer-motion";
 
-// ─── Design tokens (match ops-hero.js exactly) ────────────────────────────────
+// ─── Design tokens () ────────────────────────────────
 const INDIGO   = "#6366f1";
 const EMERALD  = "#34d399";
 const TEXT_HI  = "#f1f5f9";
@@ -347,7 +347,7 @@ function CreateForm({ onSwitch }) {
         <motion.div initial={{ scale: 0 }} animate={{ scale: 1 }} transition={{ type: "spring", stiffness: 200, delay: 0.1 }} style={{ fontSize: "48px", marginBottom: "12px" }}>🎉</motion.div>
         <div style={{ fontSize: "18px", fontWeight: "700", color: TEXT_HI, marginBottom: "6px" }}>Workspace created!</div>
         <div style={{ fontSize: "13.5px", color: TEXT_MID, marginBottom: "20px" }}>Welcome to Operix, <strong style={{ color: TEXT_HI }}>{name}</strong>. Setting things up…</div>
-        {["Account created","Workspace provisioned","Integrations connecting","AI model calibrating"].map((label, i) => (
+        {["Account created","Workspace provisioned","Integrations connecting","IEE engine calibrating"].map((label, i) => (
           <motion.div key={label} initial={{ opacity: 0, x: -8 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.15 + i * 0.12 }}
             style={{ display: "flex", alignItems: "center", gap: "9px", padding: "8px 0", borderBottom: i < 3 ? "1px solid rgba(255,255,255,0.05)" : "none", textAlign: "left" }}>
             <div style={{ width: "20px", height: "20px", borderRadius: "50%", background: i < 2 ? "rgba(52,211,153,0.15)" : "rgba(255,255,255,0.05)", border: `1px solid ${i < 2 ? EMERALD : "rgba(255,255,255,0.1)"}`, display: "flex", alignItems: "center", justifyContent: "center", fontSize: "10px", flexShrink: 0, color: i < 2 ? EMERALD : TEXT_LOW }}>
@@ -556,7 +556,7 @@ function AuthModal({ open, onClose, defaultTab = "signin" }) {
                 <div style={{ padding: "28px 24px 24px", background: "rgba(255,255,255,0.015)" }}>
                   <div style={{ marginBottom: "18px" }}>
                     <div style={{ fontSize: "16px", fontWeight: "700", color: TEXT_HI, letterSpacing: "-0.02em", marginBottom: "5px" }}>Why teams choose Operix</div>
-                    <div style={{ fontSize: "13px", color: TEXT_LOW, lineHeight: 1.6 }}>AI-powered operational intelligence that keeps your teams ahead of every escalation.</div>
+                    <div style={{ fontSize: "13px", color: TEXT_LOW, lineHeight: 1.6 }}>An operational intelligence that keeps your team ahead of every escalation.</div>
                   </div>
 
                   <div style={{ display: "flex", flexDirection: "column", gap: "10px" }}>

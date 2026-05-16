@@ -448,7 +448,7 @@
     document.getElementById('build-progress').textContent = Math.floor((8-d)/d*100)+"%";
     style.textContent = `@keyframes growBar {
     from { width: 0%; }
-    to   { width: ${Math.floor((8-d)/d*100)}%; }}`;
+    to   { width: ${Math.floor((8-d)/8*100)}%; }}`;
     document.head.appendChild(style);
   }
   tick();

@@ -2,7 +2,6 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import reportWebVitals from './reportWebVitals';
 import Hero from './home/ops-hero';
-import App from './App';
 import './styles/globals.css';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));

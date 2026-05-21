@@ -170,7 +170,7 @@ const howSteps = [
 //       "Operix was the only platform that felt genuinely intelligent.",
 //     color: "#f59e0b",
 //   },
-];
+// ];
 
 const footerLinks = [
   "Privacy",

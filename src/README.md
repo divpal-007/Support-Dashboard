@@ -2,7 +2,8 @@
 A responsive IEE-powered support ticket and operational management dashboard built with React.js/Java.
 
 ## 🌐 Live Demo
-https://support-dashboard-theta.vercel.app
+
+[Operix Dashboard](https://support-dashboard-theta.vercel.app)
 
 ## 📸 Screenshot
 ![alt text](image-1.png)

@@ -1,0 +1,14 @@
+.root {
+  display: flex;
+  min-height: 100vh;
+  background: var(--bg-base);
+}
+
+.main {
+  margin-left: var(--sidebar-width);
+  margin-top: var(--navbar-height);
+  flex: 1;
+  min-height: calc(100vh - var(--navbar-height));
+  overflow-y: auto;
+  padding: 24px;
+}

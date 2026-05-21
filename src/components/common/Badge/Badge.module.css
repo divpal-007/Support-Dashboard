@@ -1,0 +1,22 @@
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 2px 8px;
+  border-radius: var(--radius-full);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  border: 1px solid transparent;
+}
+
+.critical { background: var(--color-critical-dim); color: var(--color-critical); border-color: rgba(239,68,68,0.25); }
+.high     { background: var(--color-high-dim);     color: var(--color-high);     border-color: rgba(249,115,22,0.25); }
+.medium   { background: var(--color-medium-dim);   color: var(--color-medium);   border-color: rgba(234,179,8,0.25); }
+.low      { background: var(--color-low-dim);      color: var(--color-low);      border-color: rgba(34,197,94,0.25); }
+.info     { background: var(--color-info-dim);     color: var(--color-info);     border-color: rgba(59,130,246,0.25); }
+.iee      { background: rgba(139,92,246,0.15);     color: #a78bfa;               border-color: rgba(139,92,246,0.3); }
+.system   { background: rgba(99,102,241,0.15);     color: #818cf8;               border-color: rgba(99,102,241,0.3); }
+.automation { background: rgba(6,182,212,0.15);    color: #22d3ee;               border-color: rgba(6,182,212,0.3); }

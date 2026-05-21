@@ -1,0 +1,11 @@
+.wrapper { margin-bottom: 20px; }
+
+.heading {
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 4px;
+  letter-spacing: -0.02em;
+}
+
+.sub { font-size: 13px; color: var(--text-secondary); }

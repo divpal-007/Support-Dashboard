@@ -1,0 +1,115 @@
+/* ============================================================
+   App.module.css
+   ============================================================ */
+
+.layout {
+  display: flex;
+  min-height: 100vh;
+}
+
+.main {
+  margin-left: var(--sidebar-width);
+  margin-top: var(--navbar-height);
+  flex: 1;
+  min-height: calc(100vh - var(--navbar-height));
+  padding: 28px;
+  overflow-y: auto;
+}
+
+/* Page intro */
+.pageHeader {
+  margin-bottom: 28px;
+  animation: fadeUp 0.35s ease both;
+}
+
+.greeting {
+  font-family: var(--font-display);
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--text-primary);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 4px;
+}
+
+.greetingSub {
+  font-size: 13px;
+  color: var(--text-muted);
+}
+
+/* Placeholder route stub */
+.comingSoon {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 320px;
+  gap: 10px;
+  color: var(--text-muted);
+  border: 1px dashed var(--color-border);
+  border-radius: var(--radius-xl);
+  animation: fadeUp 0.3s ease both;
+}
+
+.comingSoonTitle {
+  font-family: var(--font-display);
+  font-size: 20px;
+  color: var(--text-secondary);
+}
+
+/* Stats grid placeholder */
+.statsGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+@media (max-width: 1200px) {
+  .statsGrid { grid-template-columns: repeat(2, 1fr); }
+}
+
+/* Placeholder stat card */
+.statCard {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: 20px;
+  animation: fadeUp 0.4s ease both;
+}
+
+.statCard:nth-child(2) { animation-delay: 0.05s; }
+.statCard:nth-child(3) { animation-delay: 0.1s; }
+.statCard:nth-child(4) { animation-delay: 0.15s; }
+
+.statLabel {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: 8px;
+}
+
+.statValue {
+  font-family: var(--font-display);
+  font-size: 30px;
+  font-weight: 700;
+  color: var(--text-primary);
+  line-height: 1;
+  margin-bottom: 6px;
+}
+
+.statDelta {
+  font-size: 12px;
+  color: var(--text-secondary);
+}
+
+.statDeltaUp   { color: var(--color-success); }
+.statDeltaDown { color: var(--color-danger); }
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(12px); }
+  to   { opacity: 1; transform: translateY(0); }
+}

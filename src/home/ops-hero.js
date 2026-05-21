@@ -1,6 +1,8 @@
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { AuthModal } from "./AuthModal";
+import Icon from "./icon-pack";
+import ICON from "./icon-pack";
 
 const ticketData = [
   { id: "TK-2841", title: "API Gateway timeout", priority: "critical", status: "escalated", time: "2m ago", sla: 12 },
@@ -28,18 +30,12 @@ const aiInsights = [
 const sparkline = [40, 55, 38, 62, 48, 71, 55, 80, 65, 88, 74, 92, 82, 96, 89, 97];
 
 const logos = [
-  "Stripe",
-  "Notion",
-  "Vercel",
-  "Linear",
-  "Figma",
-  "Supabase",
-  "Retool",
+  "Slack","Jira","GitHub","Linear","Zendesk"
 ];
 
 const features = [
   {
-    icon: "🤖",
+    icon: "🧠",
     title: "Intelligent Escalation Detection",
     body:
       "Detect escalation risks before SLA breaches occur. Operix continuously analyzes ticket velocity, workload pressure, and support patterns in real time.",
@@ -49,7 +45,7 @@ const features = [
     border: "rgba(99,102,241,0.18)",
   },
   {
-    icon: "📊",
+    icon: "🖥️",
     title: "Operational Analytics",
     body:
       "Monitor ticket throughput, resolution efficiency, SLA compliance, and operational health through live IEE™-powered dashboards.",
@@ -102,20 +98,20 @@ const features = [
 
 const operationalCapacity=[
   {
-        value: "$2.4B",
-        label: "Operational cost saved globally",
+        value: "24/7",
+        label: "Real-time operational visibility",
       },
       {
-        value: "1,200+",
-        label: "Teams using Operix daily",
+        value: "40+",
+        label: "Workflow Integrations",
       },
       {
-        value: "94.7%",
-        label: "Average SLA compliance",
+        value: "99.2%",
+        label: "SLA Visibility Accuracy",
       },
       {
-        value: "68%",
-        label: "Reduction in escalation time",
+        value: "<2 min",
+        label: "Escalation Detection Time",
       },
 ]
 
@@ -142,7 +138,7 @@ const howSteps = [
     border: "rgba(245,158,11,0.22)",
   },
   {
-    icon: "✅",
+    icon: "💡",
     title: "Acts on IEE™ suggestions",
     body: "Trigger automations or reassign with one click.",
     bg: "rgba(248,113,113,0.1)",
@@ -258,8 +254,8 @@ function AnimatedCounter({ target, duration = 1800 }) {
 }
 
 const BADGES = [
-  { icon: "🤖", text: "Intelligent Escalation Detection" },
-  { icon: "📊", text: "Operational Analytics" },
+  { icon: "🧠", text: "Intelligent Escalation Detection" },
+  { icon: "🖥️", text: "Operational Analytics" },
   { icon: "⚙️", text: "Smart Workflow Automation" },
 ];
 
@@ -383,16 +379,16 @@ export default function Hero() {
 
           {/* Social proof */}
           <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.9 }}
-            style={{ marginTop: "40px", display: "flex", alignItems: "center", gap: "16px" }}>
+            style={{ marginTop: "40px", display: "flex", alignItems: "center", gap: "5px" }}>
             <div style={{ display: "flex" }}>
-              {["🟣", "🔵", "🟢", "🟡"].map((c, i) => (
-                <div key={i} style={{ width: "28px", height: "28px", borderRadius: "50%", background: ["#6366f1", "#3b82f6", "#10b981", "#f59e0b"][i], border: "2px solid #0d1117", marginLeft: i > 0 ? "-8px" : "0px", display: "flex", alignItems: "center", justifyContent: "center", fontSize: "11px", color: "#fff", fontWeight: "700" }}>
-                  {["A", "B", "C", "D"][i]}
+              {["🟣", "🔵", "🟢"].map((c, i) => (
+                <div key={i} style={{ width: "60px", height: "40px", borderRadius: "50%", background: ["#6366f1", "#3b82f6", "#10b981", "#f59e0b"][i], border: "2px solid #0d1117", marginLeft: i > 0 ? "-8px" : "0px", display: "flex", alignItems: "center", justifyContent: "center", fontSize: "10px", color: "#fff", fontWeight: "500" }}>
+                  {["Visibility", "Action", "Intelligence"][i]}
                 </div>
               ))}
             </div>
             <div>
-              <div style={{ fontSize: "12.5px", fontWeight: "600", color: "#f1f5f9" }}>★★★★★ <span style={{ color: "rgba(226,232,240,0.5)", fontWeight: "400" }}>Trusted by 1,200+ ops teams</span></div>
+              <div style={{ fontSize: "12.5px", fontWeight: "600", color: "#f1f5f9" }}><span style={{ color: "rgba(226,232,240,0.5)", fontWeight: "400" }}>operational visibility meets intelligent action</span></div>
             </div>
           </motion.div>
         </div>
@@ -540,7 +536,7 @@ export default function Hero() {
                 <motion.div initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }} transition={{ delay: 1.2 }}
                   style={{ background: "rgba(52,211,153,0.05)", border: "1px solid rgba(52,211,153,0.15)", borderRadius: "8px", padding: "10px 12px" }}>
                   <div style={{ display: "flex", alignItems: "center", gap: "6px", marginBottom: "4px" }}>
-                    <span style={{ fontSize: "12px" }}>🤖</span>
+                    <span style={{ fontSize: "12px" }}><ICON name="robot" size="20" className="robot-suggestion"/> </span>
                     <span style={{ fontSize: "11px", fontWeight: "700", color: "#34d399" }}>Agent Suggestion</span>
                   </div>
                   <div style={{ fontSize: "10.5px", color: "rgba(226,232,240,0.55)", lineHeight: 1.5 }}>Route 4 tickets to <strong style={{ color: "#6ee7b7" }}>Frontend</strong> (43% capacity available)</div>
@@ -565,7 +561,7 @@ export default function Hero() {
                 <div style={{maxWidth: "1280px", margin: "0 auto",padding: "0 40px",position: "relative",zIndex: 1,}}>
                 {/* LOGOS */}
                 <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 1.45 }} style={{marginTop: "20px",textAlign: "center",}}>
-                  <div style={{fontSize: "10px",letterSpacing: "0.12em",textTransform: "uppercase",color: "rgba(226,232,240,0.28)",marginBottom: "14px",fontWeight: "600",}}>Trusted by engineering & ops teams at
+                  <div style={{fontSize: "10px",letterSpacing: "0.12em",textTransform: "uppercase",color: "rgba(226,232,240,0.28)",marginBottom: "14px",fontWeight: "600",}}>Built for modern operational workflows
                   </div>
                   <div style={{display: "flex",justifyContent: "center",flexWrap: "wrap",gap: "22px",}}>
                   {logos.map((logo, i) => (
@@ -790,7 +786,7 @@ export default function Hero() {
 </div>
 
 {/* TESTIMONIALS */}
-<div
+{/* <div
   style={{
     marginTop: "90px",
   }}
@@ -937,7 +933,7 @@ export default function Hero() {
       </motion.div>
     ))}
   </div>
-</div>
+</div> */}
 
 {/* CTA SECTION */}
 <motion.div
@@ -993,7 +989,7 @@ export default function Hero() {
       lineHeight: 1.7,
     }}
   >
-    Join 1,200+ teams using Operix to stay ahead of escalations,
+    Connect your operations with Operix to stay ahead of escalations,
     balance workloads, and ship reliably.
   </div>
 

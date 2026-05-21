@@ -1,0 +1,15 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 400px;
+  gap: 12px;
+  border: 1px dashed var(--border-default);
+  border-radius: var(--radius-xl);
+  animation: fadeUp 0.3s ease both;
+}
+
+.icon  { font-size: 40px; }
+.title { font-size: 20px; font-weight: 700; color: var(--text-primary); }
+.desc  { font-size: 13px; color: var(--text-muted); }

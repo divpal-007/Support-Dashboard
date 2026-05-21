@@ -5,7 +5,8 @@ A responsive IEE-powered support ticket and operational management dashboard bui
 https://support-dashboard-theta.vercel.app
 
 ## 📸 Screenshot
-![alt text](image-1.png)
+<img width="1919" height="911" alt="image" src="https://github.com/user-attachments/assets/714a0f2e-87d9-4c5f-b65d-3ae604dd9dc5" />
+
 
 ## ✨ Features
 - 📊 Real-time ticket statistics (Total, Open, Pending, Resolved)

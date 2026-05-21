@@ -19,7 +19,7 @@ function OAuthBtn({ icon, label }) {
       onMouseEnter={() => setHov(true)}
       onMouseLeave={() => setHov(false)}
       style={{
-        flex: 1, display: "flex", alignItems: "center", justifyContent: "center", gap: "8px",
+        display: "flex", alignItems: "center", justifyContent: "center", gap: "8px",
         padding: "10px 12px",
         background: hov ? "rgba(255,255,255,0.07)" : "rgba(255,255,255,0.04)",
         border: `1px solid ${hov ? "rgba(255,255,255,0.15)" : BORDER}`,
@@ -268,7 +268,7 @@ function SignInForm({ onSwitch }) {
       {/* OAuth row 2 */}
       <div style={{ display: "flex", gap: "8px" }}>
         <OAuthBtn icon={<ICON name="gitLogin" size="20" viewBox="0 0 24 24" className="git-login"/>} label="Continue with GitHub" />
-        <OAuthBtn icon="🌍" label="Continue with SSO" />
+        <OAuthBtn icon="🌍" label="Continue with the SSO" />
       </div>
 
       <OrDivider />

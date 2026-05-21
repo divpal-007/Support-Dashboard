@@ -151,7 +151,7 @@ const FEATURES = [
     body: "Seamlessly integrate with the tools your teams already use.",
     link: "View all integrations",
     linkColor: EMERALD,
-    pills: ["🔷", "💬", "⚡", "🟢", "🟣"],
+    // pills: ["🔷", "💬", "⚡", "🟢", "🟣"],
   },
   {
     icon: "👥",

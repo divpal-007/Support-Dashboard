@@ -1,11 +1,11 @@
-# 🤖 TellMe SupportAI Dashboard
-A responsive AI-powered support ticket management dashboard built with React.js.
+# Operix Operational Intellegince
+A responsive IEE-powered support ticket and operational management dashboard built with React.js/Java.
 
 ## 🌐 Live Demo
 https://support-dashboard-theta.vercel.app
 
 ## 📸 Screenshot
-![Dashboard](image.png)
+![Dashboard](![alt text](image-1.png))
 
 ## ✨ Features
 - 📊 Real-time ticket statistics (Total, Open, Pending, Resolved)
@@ -17,6 +17,7 @@ https://support-dashboard-theta.vercel.app
 
 ## 🛠️ Tech Stack
 - **React.js** — Component-based UI
+- **Java SpringBoot** — plsql,jwt,backend
 - **JavaScript (ES6+)** — useState, array methods, destructuring
 - **CSS3** — Flexbox, CSS Grid, CSS Variables, Responsive Design
 - **Vercel** — Deployment
@@ -97,10 +98,10 @@ v-2.0.1 - Hotfix
     Team workload intelligence
     SLA risk visibility improvements
     Enhanced operational metrics tracking
--Introduced the new IEE™ (Intelligent Execution Engine) operational runtime
--Redesigned the entire operational workspace experience
--Added real-time workflow intelligence monitoring
--Improved escalation detection and SLA visibility systems    
+-  Introduced the new IEE™ (Intelligent Execution Engine) operational runtime
+-  Redesigned the entire operational workspace experience
+-  Added real-time workflow intelligence monitoring
+-  Improved escalation detection and SLA visibility systems    
 
 ## 🔮 Upcoming Features to be implemented
 

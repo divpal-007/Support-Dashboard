@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { AuthModal } from "./AuthModal";
-import Icon from "./icon-pack";
 import ICON from "./icon-pack";
 
 const ticketData = [
@@ -146,31 +145,31 @@ const howSteps = [
   },
 ];
 
-const testimonials = [
-  {
-    initials: "SR",
-    name: "Sarah R.",
-    role: "Head of Support Ops · Stripe",
-    quote:
-      "Operix caught an escalation pattern we'd been missing for months.",
-    color: "#6366f1",
-  },
-  {
-    initials: "MK",
-    name: "Marcus K.",
-    role: "VP Engineering · Vercel",
-    quote:
-      "The workload distribution view alone saved us from burning out engineers.",
-    color: "#10b981",
-  },
-  {
-    initials: "JL",
-    name: "Jamie L.",
-    role: "CTO · Retool",
-    quote:
-      "Operix was the only platform that felt genuinely intelligent.",
-    color: "#f59e0b",
-  },
+// const testimonials = [
+//   {
+//     initials: "SR",
+//     name: "Sarah R.",
+//     role: "Head of Support Ops · Stripe",
+//     quote:
+//       "Operix caught an escalation pattern we'd been missing for months.",
+//     color: "#6366f1",
+//   },
+//   {
+//     initials: "MK",
+//     name: "Marcus K.",
+//     role: "VP Engineering · Vercel",
+//     quote:
+//       "The workload distribution view alone saved us from burning out engineers.",
+//     color: "#10b981",
+//   },
+//   {
+//     initials: "JL",
+//     name: "Jamie L.",
+//     role: "CTO · Retool",
+//     quote:
+//       "Operix was the only platform that felt genuinely intelligent.",
+//     color: "#f59e0b",
+//   },
 ];
 
 const footerLinks = [

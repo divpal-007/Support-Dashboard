@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence} from "framer-motion";
+import ICON from "./icon-pack";
 
 // ─── Design tokens () ────────────────────────────────
 const INDIGO   = "#6366f1";
@@ -261,13 +262,13 @@ function SignInForm({ onSwitch }) {
 
       {/* OAuth row 1 */}
       <div style={{ display: "flex", gap: "8px", marginBottom: "8px" }}>
-        <OAuthBtn icon="🔵" label="Continue with Google" />
-        <OAuthBtn icon="🟥" label="Continue with Microsoft" />
+        <OAuthBtn icon={<ICON name="googleLogin" size="20" viewBox="0 0 48 48" className="g-login"/>} label="Continue with Google" />
+        <OAuthBtn icon={<ICON name="microLogin" size="20" viewBox="0 0 24 24" className="m-login"/>} label="Continue with Microsoft" />
       </div>
       {/* OAuth row 2 */}
       <div style={{ display: "flex", gap: "8px" }}>
-        <OAuthBtn icon="⚫" label="Continue with GitHub" />
-        <OAuthBtn icon="🔒" label="Continue with SSO" />
+        <OAuthBtn icon={<ICON name="gitLogin" size="20" viewBox="0 0 24 24" className="git-login"/>} label="Continue with GitHub" />
+        <OAuthBtn icon="🌍" label="Continue with SSO" />
       </div>
 
       <OrDivider />
@@ -369,8 +370,8 @@ function CreateForm({ onSwitch }) {
       </div>
 
       <div style={{ display: "flex", gap: "8px", marginBottom: "8px" }}>
-        <OAuthBtn icon="🔵" label="Continue with Google" />
-        <OAuthBtn icon="⚫" label="Continue with GitHub" />
+        <OAuthBtn icon={<ICON name="googleLogin" size="20" viewBox="0 0 48 48" className="g-login"/>} label="Continue with Google" />
+        <OAuthBtn icon={<ICON name="gitLogin" size="20" viewBox="0 0 24 24" className="git-login"/>} label="Continue with GitHub" />
       </div>
 
       <OrDivider />

@@ -499,7 +499,7 @@ function AuthModal({ open, onClose, defaultTab = "signin" }) {
             }}>
 
               {/* ── Top bar with tabs + close ── */}
-              <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", padding: "10px 24px 0", borderBottom: "1px solid rgba(255,255,255,0.07)", paddingBottom: "0" }}>
+              <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", padding: "5px 24px 0", borderBottom: "1px solid rgba(255,255,255,0.07)", paddingBottom: "0" }}>
                 {/* Tabs */}
                 <div style={{ display: "flex", gap: "0" }}>
                   {[
@@ -539,7 +539,7 @@ function AuthModal({ open, onClose, defaultTab = "signin" }) {
               <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "0" }}>
 
                 {/* LEFT: form */}
-                <div style={{ padding: "28px 28px 24px", borderRight: "1px solid rgba(255,255,255,0.07)" }}>
+                <div style={{ padding: "28px 28px 24px", borderRight: "1px solid rgba(255,255,255,0.07)",minHeight:"580px",minWidth:"450px" }}>
                   <AnimatePresence mode="wait">
                     {tab === "signin" ? (
                       <motion.div key="signin" initial={{ opacity: 0, x: -10 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: 10 }} transition={{ duration: 0.22 }}>
@@ -554,7 +554,7 @@ function AuthModal({ open, onClose, defaultTab = "signin" }) {
                 </div>
 
                 {/* RIGHT: features */}
-                <div style={{ padding: "28px 24px 24px", background: "rgba(255,255,255,0.015)" }}>
+                <div style={{ padding: "28px 24px 24px", background: "rgba(255,255,255,0.015)", minHeight:"580px", minWidth:"350px"}}>
                   <div style={{ marginBottom: "18px" }}>
                     <div style={{ fontSize: "16px", fontWeight: "700", color: TEXT_HI, letterSpacing: "-0.02em", marginBottom: "5px" }}>Why teams choose Operix</div>
                     <div style={{ fontSize: "13px", color: TEXT_LOW, lineHeight: 1.6 }}>An operational intelligence that keeps your team ahead of every escalation.</div>
@@ -567,7 +567,7 @@ function AuthModal({ open, onClose, defaultTab = "signin" }) {
               </div>
 
               {/* ── Bottom trust bar ── */}
-              <div style={{ borderTop: "1px solid rgba(255,255,255,0.07)", padding: "12px 28px", display: "flex", alignItems: "center", justifyContent: "center", gap: "28px", background: "rgba(255,255,255,0.01)", flexWrap: "wrap" }}>
+              <div style={{ borderTop: "1px solid rgba(255,255,255,0.07)", padding: "10px 28px", display: "flex", alignItems: "center", justifyContent: "center", gap: "28px", background: "rgba(255,255,255,0.01)", flexWrap: "wrap" }}>
                 {/* {[
                   { icon: "🛡️", label: "Enterprise-grade security" },
                   { icon: "🔒", label: "SOC 2 Compliant"          },

@@ -45,6 +45,6 @@ export function useEscalations() {
     escalations: state.escalations.items,
     loading:     state.escalations.loading,
     error:       state.escalations.error,
-    resolve,
+    resolve
   };
 }

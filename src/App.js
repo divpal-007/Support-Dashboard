@@ -58,7 +58,7 @@ function AppShell() {
       }
     }
     restoreSession();
-  },[]);
+  },[dispatch]);
     if(state.auth.loading){
       return (
       <div style={{

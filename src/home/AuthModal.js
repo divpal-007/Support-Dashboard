@@ -4,7 +4,6 @@ import ICON from "./icon-pack";
 import { authService } from "../services/authService";
 import { useAppStore } from "../store/appStore";
 import { ACTIONS } from "../store/appStore";
-import { type } from "@testing-library/user-event/dist/type";
 
 // ─── Design tokens () ────────────────────────────────
 const INDIGO   = "#6366f1";

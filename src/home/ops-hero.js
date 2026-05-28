@@ -272,7 +272,7 @@ function NavLink({ label }) {
   );
 }
 export default function Hero() {
-  const [tick, setTick] = useState(0);
+  // const [tick, setTick] = useState(0);
   const [activeTicket, setActiveTicket] = useState(null);
   const[open,setOpen]=useState(false);
   const[tab,setTab]=useState("signin");

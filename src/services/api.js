@@ -4,7 +4,7 @@
 
 import axios from 'axios';
 
-const BASE_URL = process.env.REACT_APP_API_URL || 'http://13.126.196.238:8080/api';
+const BASE_URL = process.env.REACT_APP_API_URL || 'https://retiring-huntress-brownnose.ngrok-free.dev/api';
 
 const api = axios.create({
   baseURL: BASE_URL,

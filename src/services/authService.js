@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const api = axios.create({
-    baseURL: process.env.REACT_APP_API_URL || 'http://13.126.196.238:8080/api', //new changes
+    baseURL: process.env.REACT_APP_API_URL || 'https://retiring-huntress-brownnose.ngrok-free.dev/api',
     withCredentials: true,
     headers: {
         'Content-Type':'application/json'

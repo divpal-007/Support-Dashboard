@@ -49,7 +49,7 @@ export default function Sidebar({ activeRoute = 'overview', onNavigate }) {
         <div className={styles.logoBox}>
           <Zap size={15} color="#fff" strokeWidth={2.5} />
         </div>
-        <span className={styles.brandName}>OPERIX</span>
+        <span className={styles.brandName}>INOPERIX</span>
       </div>
 
       {/* Navigation */}
@@ -82,7 +82,7 @@ export default function Sidebar({ activeRoute = 'overview', onNavigate }) {
             <Cpu size={14} color="#fff" />
           </div>
           <div>
-            <div className={styles.ieeTitle}>OPERIX IEE™</div>
+            <div className={styles.ieeTitle}>INOPERIX IEE™</div>
             <div className={styles.ieeSub}>Intelligent Escalation Engine</div>
           </div>
         </div>

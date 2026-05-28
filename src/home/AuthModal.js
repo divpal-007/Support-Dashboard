@@ -275,7 +275,7 @@ function SignInForm({ onSwitch,onSuccess }) {
     <div>
       <div style={{ marginBottom: "20px" }}>
         <div style={{ fontSize: "24px", fontWeight: "700", color: TEXT_HI, letterSpacing: "-0.025em", marginBottom: "5px" }}>Access your operational workspace</div>
-        <div style={{ fontSize: "13.5px", color: TEXT_LOW }}>Sign in to continue to Operix</div>
+        <div style={{ fontSize: "13.5px", color: TEXT_LOW }}>Sign in to continue to Inoperix</div>
       </div>
 
       {/* OAuth row 1 */}
@@ -385,7 +385,7 @@ function CreateForm({ onSwitch,onSuccess }) {
       <motion.div initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }} style={{ textAlign: "center", padding: "24px 0" }}>
         <motion.div initial={{ scale: 0 }} animate={{ scale: 1 }} transition={{ type: "spring", stiffness: 200, delay: 0.1 }} style={{ fontSize: "48px", marginBottom: "12px" }}>🎉</motion.div>
         <div style={{ fontSize: "18px", fontWeight: "700", color: TEXT_HI, marginBottom: "6px" }}>Workspace created!</div>
-        <div style={{ fontSize: "13.5px", color: TEXT_MID, marginBottom: "20px" }}>Welcome to Operix, <strong style={{ color: TEXT_HI }}>{name}</strong>. Setting things up…</div>
+        <div style={{ fontSize: "13.5px", color: TEXT_MID, marginBottom: "20px" }}>Welcome to Inoperix, <strong style={{ color: TEXT_HI }}>{name}</strong>. Setting things up…</div>
         {["Account created","Workspace provisioned","Integrations connecting","IEE engine calibrating"].map((label, i) => (
           <motion.div key={label} initial={{ opacity: 0, x: -8 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.15 + i * 0.12 }}
             style={{ display: "flex", alignItems: "center", gap: "9px", padding: "8px 0", borderBottom: i < 3 ? "1px solid rgba(255,255,255,0.05)" : "none", textAlign: "left" }}>
@@ -456,7 +456,7 @@ function CreateForm({ onSwitch,onSuccess }) {
       <label style={{ display: "flex", alignItems: "flex-start", gap: "8px", marginBottom: "18px", cursor: "pointer" }}>
         <input type="checkbox" style={{ accentColor: INDIGO, marginTop: "2px", flexShrink: 0 }} />
         <span style={{ fontSize: "12px", color: TEXT_LOW, lineHeight: 1.55 }}>
-          I agree to Operix's <span style={{ color: INDIGO }}>Terms of Service</span> and <span style={{ color: INDIGO }}>Privacy Policy</span>
+          I agree to Inoperix's <span style={{ color: INDIGO }}>Terms of Service</span> and <span style={{ color: INDIGO }}>Privacy Policy</span>
         </span>
       </label>
        {errors.general && (
@@ -598,7 +598,7 @@ function AuthModal({ open, onClose, defaultTab = "signin", onSuccess }) {
                 {/* RIGHT: features */}
                 <div style={{ padding: "28px 24px 24px", background: "rgba(255,255,255,0.015)", minHeight:"580px", minWidth:"350px"}}>
                   <div style={{ marginBottom: "18px" }}>
-                    <div style={{ fontSize: "16px", fontWeight: "700", color: TEXT_HI, letterSpacing: "-0.02em", marginBottom: "5px" }}>Why teams choose Operix</div>
+                    <div style={{ fontSize: "16px", fontWeight: "700", color: TEXT_HI, letterSpacing: "-0.02em", marginBottom: "5px" }}>Why teams choose Inoperix</div>
                     <div style={{ fontSize: "13px", color: TEXT_LOW, lineHeight: 1.6 }}>An operational intelligence that keeps your team ahead of every escalation.</div>
                   </div>
 

@@ -38,7 +38,7 @@ const features = [
     icon: "🧠",
     title: "Intelligent Escalation Detection",
     body:
-      "Detect escalation risks before SLA breaches occur. Operix continuously analyzes ticket velocity, workload pressure, and support patterns in real time.",
+      "Detect escalation risks before SLA breaches occur. Inoperix continuously analyzes ticket velocity, workload pressure, and support patterns in real time.",
     badge: "Real-time intelligence",
     color: "#818cf8",
     bg: "rgba(99,102,241,0.08)",
@@ -126,7 +126,7 @@ const howSteps = [
   {
     icon: "🧠",
     title: "IEE™ learns your ops",
-    body: "Operix ingests historical ticket data automatically.",
+    body: "Inoperix ingests historical ticket data automatically.",
     bg: "rgba(52,211,153,0.1)",
     border: "rgba(52,211,153,0.22)",
   },
@@ -321,7 +321,7 @@ export default function Hero() {
         style={{ position: "relative", zIndex: 10, display: "flex", alignItems: "center", justifyContent: "space-between", padding: "0 40px", height: "60px", borderBottom: "1px solid rgba(255,255,255,0.055)" }}>
         <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
           <div style={{ width: "28px", height: "28px", background: "linear-gradient(135deg, #6366f1, #34d399)", borderRadius: "7px", display: "flex", alignItems: "center", justifyContent: "center", fontSize: "13px" }}>⚡</div>
-          <span style={{ fontSize: "15px", fontWeight: "600", letterSpacing: "-0.02em", color: "#f1f5f9" }}>Operix</span>
+          <span style={{ fontSize: "15px", fontWeight: "600", letterSpacing: "-0.02em", color: "#f1f5f9" }}>Inoperix</span>
           <span style={{ fontSize: "9px", background: "rgba(99,102,241,0.15)", color: "#818cf8", padding: "2px 7px", borderRadius: "20px", border: "1px solid rgba(99,102,241,0.2)", fontWeight: "500",opacity:"0.72", }}>Powered by IEE™</span>
         </div>
        <div style={{ display: "flex", gap: "28px", fontSize: "13.5px", color: "rgba(226,232,240,0.55)", fontWeight: "450" }}>
@@ -419,7 +419,7 @@ export default function Hero() {
               </div>
               <div style={{ flex: 1, display: "flex", justifyContent: "center" }}>
                 <div style={{ background: "rgba(255,255,255,0.05)", borderRadius: "6px", padding: "3px 16px", fontSize: "11px", color: "rgba(226,232,240,0.4)", border: "1px solid rgba(255,255,255,0.05)" }}>
-                  operix.iee/dashboard
+                  inoperix.iee/dashboard
                 </div>
               </div>
               <div style={{ fontSize: "11px", color: "rgba(226,232,240,0.35)" }}>
@@ -589,7 +589,7 @@ export default function Hero() {
 
                   <div style={{fontSize: "16px",lineHeight: 1.8,color: "rgba(226,232,240,0.52)",maxWidth: "620px",}}>
                   From escalation prevention to workload intelligence,
-                  Operix gives modern support teams real-time operational
+                  Inoperix gives modern support teams real-time operational
                   visibility and IEE™ assisted coordination at scale.
                   </div>
                   </motion.div>
@@ -996,7 +996,7 @@ export default function Hero() {
       lineHeight: 1.7,
     }}
   >
-    Connect your operations with Operix to stay ahead of escalations,
+    Connect your operations with Inoperix to stay ahead of escalations,
     balance workloads, and ship reliably.
   </div>
 
@@ -1130,7 +1130,7 @@ export default function Hero() {
           color: "#f1f5f9",
         }}
       >
-        Operix
+        Inoperix
       </span>
     </motion.div>
 
@@ -1170,7 +1170,7 @@ export default function Hero() {
         letterSpacing: "-0.01em",
       }}
     >
-      © 2026 Operix Inc. All rights reserved.
+      © 2026 Inoperix Inc. All rights reserved.
     </div>
   </div>
 </motion.footer>

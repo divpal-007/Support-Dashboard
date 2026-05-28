@@ -1,6 +1,10 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence} from "framer-motion";
 import ICON from "./icon-pack";
+import { authService } from "../services/authService";
+import { useAppStore } from "../store/appStore";
+import { ACTIONS } from "../store/appStore";
+import { type } from "@testing-library/user-event/dist/type";
 
 // ─── Design tokens () ────────────────────────────────
 const INDIGO   = "#6366f1";
@@ -221,7 +225,8 @@ function FeatureCard({ f }) {
 
 // ─── Sign In form ─────────────────────────────────────────────────────────────
 
-function SignInForm({ onSwitch }) {
+function SignInForm({ onSwitch,onSuccess }) {
+  const {dispatch} = useAppStore();
   const [email,    setEmail]    = useState("");
   const [password, setPassword] = useState("");
   const [showPass, setShowPass] = useState(false);
@@ -230,13 +235,27 @@ function SignInForm({ onSwitch }) {
   const [success,  setSuccess]  = useState(false);
   const [errors,   setErrors]   = useState({});
 
-  const submit = () => {
+  const submit = async () => {
     const e = {};
     if (!email.includes("@"))   e.email    = "Enter a valid email.";
     if (password.length < 6)    e.password = "Min. 6 characters.";
     if (Object.keys(e).length) { setErrors(e); return; }
-    setErrors({}); setLoading(true);
-    setTimeout(() => { setLoading(false); setSuccess(true); }, 1800);
+
+    setErrors({}); 
+    setLoading(true);
+    try{
+      const user = await authService.login({email,password});
+      //store user in global state
+      dispatch({type:ACTIONS.SET_USER, payload:user});
+      setSuccess(true);
+      //navigate to dashboard after short delay
+      setTimeout(() => onSuccess(),1500);
+    }catch(err){
+      const message = typeof err === 'string' ? err : err?.message || 'Something went wrong';
+      setErrors({general: message}); //show server error
+    }finally{
+      setLoading(false);
+    }
   };
 
   if (success) {
@@ -306,7 +325,11 @@ function SignInForm({ onSwitch }) {
         </label>
         <span style={{ fontSize: "13px", color: INDIGO, cursor: "pointer", fontWeight: "500" }}>Forgot password?</span>
       </div>
-
+      {errors.general && (
+        <div style={{padding:'10px 14px',borderRadius:'8px',background:'rgba(248,113,113,0.08)',border: '1px solid rgba(248,113,113,0.2',color:'#f87171',fontSize:'13px',marginBottom:'14px'}}>
+          {errors.general}
+        </div>
+      )}
       <PrimaryBtn onClick={submit} loading={loading}>
         Continue to Workspace →
       </PrimaryBtn>
@@ -321,7 +344,8 @@ function SignInForm({ onSwitch }) {
 
 // ─── Create Workspace form ────────────────────────────────────────────────────
 
-function CreateForm({ onSwitch }) {
+function CreateForm({ onSwitch,onSuccess }) {
+  const {dispatch} = useAppStore();
   const [name,      setName]      = useState("");
   const [email,     setEmail]     = useState("");
   const [password,  setPassword]  = useState("");
@@ -331,15 +355,30 @@ function CreateForm({ onSwitch }) {
   const [success,   setSuccess]   = useState(false);
   const [errors,    setErrors]    = useState({});
 
-  const submit = () => {
+  const submit = async () => {
     const e = {};
-    if (name.trim().length < 2)      e.name      = "Enter your full name.";
-    if (!email.includes("@"))        e.email     = "Enter a valid work email.";
-    if (password.length < 8)         e.password  = "Min. 8 characters.";
+    if (name.trim().length < 2) e.name = "Enter your full name.";
+    if (!email.includes("@")) e.email= "Enter a valid work email.";
+    if (password.length < 8) e.password = "Min. 8 characters.";
     if (workspace.trim().length < 2) e.workspace = "Enter a workspace name.";
     if (Object.keys(e).length) { setErrors(e); return; }
-    setErrors({}); setLoading(true);
-    setTimeout(() => { setLoading(false); setSuccess(true); }, 2000);
+
+    setErrors({}); 
+    setLoading(true);
+    
+    try{
+      const user = await authService.register({
+        name,email,password,workspace
+      });
+      dispatch({type:ACTIONS.SET_USER, payload: user});
+      setSuccess(true);
+      setTimeout(() => onSuccess(),2000 );
+    }catch(err){
+      const message = typeof err === 'string' ? err : err?.message || 'Something went wrong';
+      setErrors({general:message});
+    }finally{
+      setLoading(false);
+    }
   };
 
   if (success) {
@@ -421,7 +460,11 @@ function CreateForm({ onSwitch }) {
           I agree to Operix's <span style={{ color: INDIGO }}>Terms of Service</span> and <span style={{ color: INDIGO }}>Privacy Policy</span>
         </span>
       </label>
-
+       {errors.general && (
+        <div style={{padding:'10px 14px',borderRadius:'8px',background:'rgba(248,113,113,0.08)',border: '1px solid rgba(248,113,113,0.2',color:'#f87171',fontSize:'13px',marginBottom:'14px'}}>
+          {errors.general}
+        </div>
+      )}
       <PrimaryBtn onClick={submit} loading={loading}>
         Launch my workspace
       </PrimaryBtn>
@@ -436,7 +479,7 @@ function CreateForm({ onSwitch }) {
 
 // ─── The Modal itself ─────────────────────────────────────────────────────────
 
-function AuthModal({ open, onClose, defaultTab = "signin" }) {
+function AuthModal({ open, onClose, defaultTab = "signin", onSuccess }) {
   const [tab, setTab] = useState(defaultTab);
 
   // reset tab when reopened
@@ -543,11 +586,11 @@ function AuthModal({ open, onClose, defaultTab = "signin" }) {
                   <AnimatePresence mode="wait">
                     {tab === "signin" ? (
                       <motion.div key="signin" initial={{ opacity: 0, x: -10 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: 10 }} transition={{ duration: 0.22 }}>
-                        <SignInForm onSwitch={() => setTab("create")} />
+                        <SignInForm onSwitch={() => setTab("create")} onSuccess={onSuccess}/>
                       </motion.div>
                     ) : (
                       <motion.div key="create" initial={{ opacity: 0, x: 10 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: -10 }} transition={{ duration: 0.22 }}>
-                        <CreateForm onSwitch={() => setTab("signin")} />
+                        <CreateForm onSwitch={() => setTab("signin")} onSuccess={onSuccess} />
                       </motion.div>
                     )}
                   </AnimatePresence>

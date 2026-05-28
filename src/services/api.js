@@ -8,29 +8,20 @@ const BASE_URL = process.env.REACT_APP_API_URL || 'http://localhost:8080/api';
 
 const api = axios.create({
   baseURL: BASE_URL,
-  timeout: 10000,
+  withCredentials:true, //sends HTTPOnly cookie automatically
+  timeout: 10000, // fail after 10s - don't hang forever
   headers: { 'Content-Type': 'application/json' },
 });
-
-// ── Request interceptor: attach JWT from localStorage ──
-api.interceptors.request.use(
-  (config) => {
-    const token = localStorage.getItem('operix_token');
-    if (token) config.headers.Authorization = `Bearer ${token}`;
-    return config;
-  },
-  (error) => Promise.reject(error)
-);
-
+//unwraps data - hooks get JSON directly not axios wrapper
 // ── Response interceptor: handle 401 globally ──
 api.interceptors.response.use(
   (response) => response.data,
   (error) => {
     if (error.response?.status === 401) {
-      localStorage.removeItem('operix_token');
-      window.location.href = '/login';
+      window.location.href = '/';
     }
-    return Promise.reject(error.response?.data || error.message);
+    const message = error.response?.data.message || error.response?.data.error || error.message || 'Something went wrong';
+    return Promise.reject(message);
   }
 );
 
@@ -38,40 +29,28 @@ api.interceptors.response.use(
 // DASHBOARD  →  GET /dashboard/summary
 // ─────────────────────────────────────────────────────────────
 export const dashboardService = {
-  getSummary: () => api.get('/dashboard/summary'),
-  getStats:   () => api.get('/dashboard/stats'),
+  getSummary:() => api.get('/dashboard/summary'),
+  getIeeStats:() => api.get('/dashboard/iee-status'),
 };
 
 // ─────────────────────────────────────────────────────────────
 // ESCALATIONS  →  GET /escalations, POST /escalations/:id/assign
 // ─────────────────────────────────────────────────────────────
 export const escalationService = {
-  getAll:      (params) => api.get('/escalations', { params }),
-  getById:     (id)     => api.get(`/escalations/${id}`),
-  assign:      (id, payload) => api.post(`/escalations/${id}/assign`, payload),
-  updateStatus:(id, status)  => api.patch(`/escalations/${id}/status`, { status }),
-  getSimilar:  (id)     => api.get(`/escalations/${id}/similar`),
-};
-
-// ─────────────────────────────────────────────────────────────
-// TICKETS  →  GET /tickets, POST /tickets, PATCH /tickets/:id
-// ─────────────────────────────────────────────────────────────
-export const ticketService = {
-  getAll:   (params) => api.get('/tickets', { params }),
-  getById:  (id)     => api.get(`/tickets/${id}`),
-  create:   (payload)=> api.post('/tickets', payload),
-  update:   (id, payload) => api.patch(`/tickets/${id}`, payload),
-  delete:   (id)     => api.delete(`/tickets/${id}`),
+  getAll:() => api.get('/escalations'),
+  getById:(id) => api.get(`/escalations/${id}`),
+  create:(data) => api.post('/escalations', data),
+  resolve:(id, resolution) => api.patch(`/escalations/${id}/resolve`, { resolution }),
 };
 
 // ─────────────────────────────────────────────────────────────
 // AUTH  →  POST /auth/login, POST /auth/logout, GET /auth/me
 // ─────────────────────────────────────────────────────────────
 export const authService = {
-  login:   (credentials) => api.post('/auth/login', credentials),
-  logout:  ()            => api.post('/auth/logout'),
-  getMe:   ()            => api.get('/auth/me'),
-  refresh: ()            => api.post('/auth/refresh'),
+  login:(credentials) => api.post('/auth/login',credentials),
+  register:(data) => api.post('/auth/register',data),
+  getMe:() => api.get('/auth/me'),
+  logout:() => api.post('/auth/logout'),
 };
 
 export default api;

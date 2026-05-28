@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { AuthModal } from "./AuthModal";
 import ICON from "./icon-pack";
+import { useAppStore } from "../store/appStore";
 
 const ticketData = [
   { id: "TK-2841", title: "API Gateway timeout", priority: "critical", status: "escalated", time: "2m ago", sla: 12 },
@@ -275,11 +276,18 @@ export default function Hero() {
   const [activeTicket, setActiveTicket] = useState(null);
   const[open,setOpen]=useState(false);
   const[tab,setTab]=useState("signin");
+  const{state,navigate}=useAppStore();
 
   useEffect(() => {
-    const id = setInterval(() => setTick(t => t + 1), 3000);
-    return () => clearInterval(id);
-  }, []);
+    if(state.isAuthenticated){
+      navigate('overview');
+    }
+  }, [state.isAuthenticated, navigate]);
+
+  const handleAuthSuccess = () => {
+    setOpen(false);
+    navigate('overview');
+  };
 
   const liveMetrics = [
     { label: "Open Tickets", value: 142 + (tick % 3), delta: "+2", up: true },
@@ -1167,7 +1175,7 @@ export default function Hero() {
   </div>
 </motion.footer>
         {/* AuthModal for Authentication */}
-        <AuthModal open={open} onClose={()=>{setOpen(false)}} defaultTab={tab}/>
+        <AuthModal open={open} onClose={()=>{setOpen(false)}} defaultTab={tab} onSuccess={handleAuthSuccess}/>
           </div>
   );
 }

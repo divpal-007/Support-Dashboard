@@ -10,9 +10,9 @@ function StubPage({ icon, title, description }) {
   );
 }
 
-export function EscalationsPage() {
-  return <StubPage icon="🚨" title="Escalations" description="Full escalation management coming next." />;
-}
+// export function EscalationsPage() {
+//   return <StubPage icon="🚨" title="Escalations" description="Full escalation management coming next." />;
+// }
 export function TicketsPage() {
   return <StubPage icon="🎫" title="Tickets" description="Ticket list with FilterBar and TicketCard." />;
 }

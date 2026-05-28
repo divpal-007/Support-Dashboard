@@ -1,0 +1,376 @@
+/* pages/EscalationsPage/EscalationsPage.module.css */
+
+.page {
+  padding:    24px;
+  max-width:  1000px;
+  margin:     0 auto;
+}
+
+/* ── Header ──────────────────────────────────────────── */
+.header {
+  display:         flex;
+  justify-content: space-between;
+  align-items:     flex-start;
+  margin-bottom:   24px;
+}
+
+.title {
+  font-size:   22px;
+  font-weight: 700;
+  color:       var(--text-primary);
+  margin:      0;
+}
+
+.subtitle {
+  font-size:  13px;
+  color:      var(--text-muted);
+  margin-top: 4px;
+}
+
+.createBtn {
+  background:    var(--brand-primary);
+  color:         #fff;
+  border:        none;
+  border-radius: 8px;
+  padding:       8px 16px;
+  font-size:     13px;
+  font-weight:   600;
+  cursor:        pointer;
+  transition:    opacity 0.2s;
+}
+
+.createBtn:hover {
+  opacity: 0.85;
+}
+
+/* ── Create Form ─────────────────────────────────────── */
+.form {
+  background:    var(--bg-surface);
+  border:        1px solid var(--border-subtle);
+  border-radius: 12px;
+  padding:       20px;
+  margin-bottom: 20px;
+}
+
+.formTitle {
+  font-size:   15px;
+  font-weight: 600;
+  color:       var(--text-primary);
+  margin:      0 0 16px;
+  display:     flex;
+  align-items: center;
+  gap:         10px;
+}
+
+.aiTag {
+  font-size:     11px;
+  background:    rgba(99, 102, 241, 0.15);
+  color:         var(--accent-primary, #818cf8);
+  padding:       2px 8px;
+  border-radius: 4px;
+  font-weight:   500;
+}
+
+.input {
+  width:         100%;
+  background:    var(--bg-elevated);
+  border:        1px solid var(--border-subtle);
+  border-radius: 8px;
+  padding:       10px 12px;
+  color:         var(--text-primary);
+  font-size:     13px;
+  margin-bottom: 10px;
+  box-sizing:    border-box;
+  font-family:   var(--font-sans);
+  transition:    border-color 0.2s;
+  resize:        vertical;
+}
+
+.input:focus {
+  outline:       none;
+  border-color:  var(--brand-primary);
+}
+
+.input::placeholder {
+  color: var(--text-muted);
+}
+
+.formError {
+  color:       var(--color-critical);
+  font-size:   13px;
+  margin:      4px 0 8px;
+}
+
+.formActions {
+  display:         flex;
+  justify-content: flex-end;
+  gap:             10px;
+  margin-top:      4px;
+}
+
+.cancelBtn {
+  background:    transparent;
+  border:        1px solid var(--border-subtle);
+  border-radius: 8px;
+  padding:       8px 16px;
+  color:         var(--text-secondary);
+  font-size:     13px;
+  cursor:        pointer;
+  transition:    border-color 0.2s;
+}
+
+.cancelBtn:hover {
+  border-color: var(--text-muted);
+}
+
+.submitBtn {
+  background:    var(--brand-primary);
+  border:        none;
+  border-radius: 8px;
+  padding:       8px 16px;
+  color:         #fff;
+  font-size:     13px;
+  font-weight:   600;
+  cursor:        pointer;
+  transition:    opacity 0.2s;
+}
+
+.submitBtn:disabled {
+  opacity: 0.6;
+  cursor:  not-allowed;
+}
+
+/* ── List ────────────────────────────────────────────── */
+.list {
+  display:        flex;
+  flex-direction: column;
+  gap:            12px;
+}
+
+.empty {
+  text-align:  center;
+  padding:     60px 0;
+  color:       var(--text-muted);
+  font-size:   14px;
+}
+
+/* ── Card ────────────────────────────────────────────── */
+.card {
+  background:    var(--bg-surface);
+  border:        1px solid var(--border-subtle);
+  border-radius: 12px;
+  padding:       16px;
+  transition:    border-color 0.2s;
+}
+
+.card:hover {
+  border-color: rgba(255, 255, 255, 0.12);
+}
+
+.cardTop {
+  display:         flex;
+  justify-content: space-between;
+  align-items:     center;
+  margin-bottom:   8px;
+}
+
+.cardLeft {
+  display:     flex;
+  align-items: center;
+  gap:         8px;
+  flex-wrap:   wrap;
+}
+
+.cardRight {
+  display:     flex;
+  align-items: center;
+  gap:         10px;
+  flex-shrink: 0;
+}
+
+.cardTitle {
+  font-size:   14px;
+  font-weight: 500;
+  color:       var(--text-primary);
+}
+
+.cardBottom {
+  display:     flex;
+  align-items: center;
+  gap:         12px;
+  flex-wrap:   wrap;
+  margin-top:  4px;
+}
+
+/* ── Badges ──────────────────────────────────────────── */
+.badge {
+  font-size:      10px;
+  font-weight:    700;
+  padding:        2px 8px;
+  border-radius:  4px;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+.badgeCritical {
+  background: rgba(239, 68, 68, 0.15);
+  color:      var(--color-critical);
+}
+
+.badgeHigh {
+  background: rgba(249, 115, 22, 0.15);
+  color:      var(--color-high);
+}
+
+.badgeMedium {
+  background: rgba(245, 158, 11, 0.15);
+  color:      var(--color-medium);
+}
+
+.badgeLow {
+  background: rgba(16, 185, 129, 0.15);
+  color:      var(--color-low);
+}
+
+.priorityBadge {
+  font-size:     10px;
+  font-weight:   700;
+  padding:       2px 8px;
+  border-radius: 4px;
+  background:    rgba(139, 92, 246, 0.15);
+  color:         #a78bfa;
+}
+
+.aiBadge {
+  font-size:     10px;
+  font-weight:   600;
+  padding:       2px 8px;
+  border-radius: 4px;
+  background:    rgba(99, 102, 241, 0.15);
+  color:         #818cf8;
+}
+
+.category {
+  font-size:     11px;
+  padding:       2px 8px;
+  border-radius: 4px;
+  background:    var(--bg-elevated);
+  color:         var(--text-secondary);
+}
+
+.confidence {
+  font-size: 11px;
+  color:     var(--text-muted);
+}
+
+.reasoning {
+  font-size:  11px;
+  color:      var(--text-muted);
+  font-style: italic;
+}
+
+/* ── Age and Actions ─────────────────────────────────── */
+.age {
+  font-size: 12px;
+  color:     var(--text-muted);
+}
+
+.resolveBtn {
+  background:    transparent;
+  border:        1px solid rgba(16, 185, 129, 0.3);
+  border-radius: 6px;
+  padding:       4px 10px;
+  color:         #10b981;
+  font-size:     12px;
+  cursor:        pointer;
+  transition:    background 0.2s;
+}
+
+.resolveBtn:hover {
+  background: rgba(16, 185, 129, 0.08);
+}
+
+.resolvedLabel {
+  font-size:   12px;
+  color:       #10b981;
+  font-weight: 500;
+}
+
+/* ── IEE Suggestion ──────────────────────────────────── */
+.suggestion {
+  margin-top:    10px;
+  padding:       10px 12px;
+  background:    rgba(99, 102, 241, 0.06);
+  border:        1px solid rgba(99, 102, 241, 0.15);
+  border-radius: 8px;
+  display:       flex;
+  gap:           8px;
+  align-items:   flex-start;
+}
+
+.suggestionLabel {
+  font-size:   12px;
+  font-weight: 600;
+  color:       #818cf8;
+  white-space: nowrap;
+}
+
+.suggestionText {
+  font-size:   12px;
+  color:       var(--text-secondary);
+  line-height: 1.5;
+}
+
+/* ── Loading / Centered ──────────────────────────────── */
+.centered {
+  display:         flex;
+  flex-direction:  column;
+  align-items:     center;
+  justify-content: center;
+  min-height:      300px;
+  color:           var(--text-muted);
+}
+
+.spinner {
+  width:         32px;
+  height:        32px;
+  border:        2px solid rgba(99, 102, 241, 0.2);
+  border-top:    2px solid var(--brand-primary);
+  border-radius: 50%;
+  animation:     spin 0.8s linear infinite;
+  margin-bottom: 12px;
+}
+
+/* ── Resolve Modal ───────────────────────────────────── */
+.overlay {
+  position:        fixed;
+  inset:           0;
+  background:      rgba(0, 0, 0, 0.6);
+  display:         flex;
+  align-items:     center;
+  justify-content: center;
+  z-index:         1000;
+  backdrop-filter: blur(4px);
+}
+
+.modal {
+  background:    var(--bg-surface);
+  border:        1px solid var(--border-subtle);
+  border-radius: 16px;
+  padding:       24px;
+  width:         480px;
+  max-width:     90vw;
+}
+
+.modalTitle {
+  font-size:   16px;
+  font-weight: 700;
+  color:       var(--text-primary);
+  margin:      0 0 6px;
+}
+
+.modalSubtitle {
+  font-size:     13px;
+  color:         var(--text-muted);
+  margin:        0 0 16px;
+}

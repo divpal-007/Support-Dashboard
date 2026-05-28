@@ -11,7 +11,7 @@ import styles from './Dashboard.module.css';
 
 export default function Dashboard() {
   const { state, navigate } = useAppStore();
-  const { stats, priorityIncident, escalations, queues, activity, dailySummary, loading,error } = useDashboard();
+  const { stats, priorityIncident, escalations, queues, activity, dailySummary, loading} = useDashboard();
   // const {stats, priorityIncident, queues, escalations, loading, error} = useDashboard();
 
   if (loading) {

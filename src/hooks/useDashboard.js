@@ -101,7 +101,7 @@ export function useDashboard() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
 
     // dispatch never changes — it's stable across renders. But adding it to the array causes an ESLint warning that tempts you to add more dependencies which causes re-fetching loops. Empty array with the eslint comment is intentional and correct here — it means fetch once on mount, never again unless the component unmounts and remounts.
-  }, []);
+  }, [dispatch]);
     // return the dashboard slice from store
     // components destructure what they need
 
